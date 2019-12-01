@@ -1,0 +1,36 @@
+图书管理
+
+图书表
+主键 id
+书名
+价格
+出版日期
+类型 ：it 金融 医疗    另一个表 主外键关联
+增删改查
+<ul class="order_lists" >
+                <li class="list_chk">
+                    <input type="checkbox" id="'checkbox_'+${cart.productId}" class="son_check" th:value="${cart.productId}" th:checked="${cart.ischeck==1}?'true':'false'">
+                    <label th:for="'checkbox_'+${cart.productId}" th:class="${cart.ischeck==1}?'mark':''"></label>
+                </li>
+
+                <li class="list_con">
+                    <div class="list_img"><a href="javascript:;"><img th:src="${cart.imgurl}" alt=""></a></div>
+                    <div class="list_text"><a href="javascript:;"><span th:text="${cart.name}"></span></a></div>
+                </li>
+                <li class="list_price">
+                    <p class="price">￥<span th:text="${cart.price}"></span></p>
+                </li>
+                <li class="list_amount">
+                    <div class="amount_box">
+                        <a href="javascript:;" class="reduce reSty">-</a>
+                        <input type="text" th:oldSum="${cart.countNum}" class="sum" th:productId="${cart.productId}" th:value="${cart.countNum}">
+                        <a href="javascript:;" th:onclick="'javascript:addCartNum('+${cart.productId}+')'"  class="plus">+</a>
+                    </div>
+                </li>
+                <li class="list_sum">
+                    <p class="sum_price">￥<span th:text="${cart.smallAmount}"></span></p>
+                </li>
+                <li class="list_op">
+                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                </li>
+            </ul>
